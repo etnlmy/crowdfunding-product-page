@@ -1,0 +1,35 @@
+.container {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.name, .pledge {
+  line-height: 17px;
+}
+
+.name {
+  margin-bottom: 8px;
+}
+
+.pledge {
+  margin-bottom: 24px;
+}
+
+.nbLeft {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.nbLeft strong {
+  color: black;
+  font-size: 32px;
+  line-height: 39px;
+  margin-right: 8px;
+}
+
+.disabled {
+  opacity: 0.5;
+}

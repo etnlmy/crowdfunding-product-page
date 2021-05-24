@@ -1,5 +1,20 @@
+.image {
+  height: 300px;
+  width: 100%;
+  background-size: cover;
+  background-position-x: center;
+  position: relative;
+}
 
-.container {
+.image::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 1), var(--transparent), var(--transparent), var(--transparent));
+}
+
+.main {
   margin: 0 24px;
   width: auto;
 }
@@ -64,7 +79,7 @@
   margin: 0px auto 24px auto;
 }
 
-.about {
+.aboutAndRewards {
   text-align: start;
 }
 

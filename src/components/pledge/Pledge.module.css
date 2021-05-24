@@ -1,0 +1,62 @@
+.container {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 24px 24px 8px 24px;
+  margin-bottom: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.header h2 {
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.header span {
+  color: var(--moderate-cyan);
+  display: inline-block;
+  margin-top: 8px;
+  line-height: 17px;
+}
+
+.radioButton {
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  border-radius: 12px;
+  position: relative;
+  margin-right: 16px;
+}
+
+.radioButton::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background: var(--moderate-cyan);
+  display: none;
+}
+
+.nbLeft {
+  margin-bottom: 24px;
+}
+
+.nbLeft strong {
+  color: black;
+  font-size: 18px;
+  line-height: 22px;
+  margin-right: 8px;
+}
+
+.nbLeft span {
+  display: inline-flex;
+}
