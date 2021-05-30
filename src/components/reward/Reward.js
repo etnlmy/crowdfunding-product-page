@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Reward.module.css";
 
-const Reward = ({ name, description, minumumPledge, nbLeft }) => {
+const Reward = ({ name, description, minumumPledge, nbLeft, onSelect }) => {
   const unavailable = nbLeft === 0;
 
   return (
@@ -16,7 +16,7 @@ const Reward = ({ name, description, minumumPledge, nbLeft }) => {
       <span className={styles.nbLeft}>
         <strong>{nbLeft}</strong> left
       </span>
-      <button className="button" disabled={unavailable}>
+      <button className="button" disabled={unavailable} onClick={onSelect}>
         Select Reward
       </button>
     </div>

@@ -4,7 +4,7 @@ import productData from "../data/mastercraft-bamboo-monitor-riser.json";
 function ProductPage() {
   return (
     <div className="ProductPage">
-      <Product data={JSON.parse(JSON.stringify(productData))} />
+      <Product rewardData={JSON.parse(JSON.stringify(productData))} />
     </div>
   );
 }

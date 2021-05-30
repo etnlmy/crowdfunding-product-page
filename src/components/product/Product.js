@@ -3,17 +3,39 @@ import { useMediaPredicate } from "react-media-hook";
 import BackProjectDialog from "../back-project-dialog/BackProjectDialog";
 import ProgressBar from "../progress-bar/ProgressBar";
 import Reward from "../reward/Reward";
+import ThanksDialog from "../thanks-dialog/ThanksDialog";
 import styles from "./Product.module.css";
 
 const formatNumber = (number) => number.toLocaleString("en");
 
-const Product = ({ data }) => {
+const Product = ({ rewardData }) => {
   const isDesktop = useMediaPredicate("(min-width: 400px)");
-  const [isDialogOpen, setDialogOpen] = useState(false);
+
+  const [isPledgeDialogOpen, setPledgeDialogOpen] = useState(false);
+  const [isThanksDialogOpen, setThanksDialogOpen] = useState(false);
+
+  const [selectedRewardId, setSelectedRewardId] = useState();
+  const [data, setData] = useState(rewardData);
+
+  const openPledgeDialog = (rewardId) => {
+    setSelectedRewardId(rewardId);
+    setPledgeDialogOpen(true);
+  };
+
+  const handlePledgeSubmitted = ({ amount, rewardId }) => {
+    const newData = JSON.parse(JSON.stringify(data));
+    newData.amountRaised = parseFloat(data.amountRaised) + parseFloat(amount);
+    newData.totalBackers = data.totalBackers + 1;
+    const rewardPledged = newData.rewards.find((r) => r.id === rewardId);
+    if (rewardPledged) rewardPledged.nbLeft = rewardPledged.nbLeft - 1;
+    setData(newData);
+    setPledgeDialogOpen(false);
+    setThanksDialogOpen(true);
+  };
 
   return (
     <>
-      <div aria-hidden={isDialogOpen}>
+      <div aria-hidden={isPledgeDialogOpen || isThanksDialogOpen}>
         <header
           className={styles.image}
           style={{
@@ -32,7 +54,7 @@ const Product = ({ data }) => {
             <h1>{data.name}</h1>
             <p>{data.description}</p>
             <div className={styles.buttons}>
-              <button className="button" onClick={() => setDialogOpen(true)}>
+              <button className="button" onClick={() => openPledgeDialog(-1)}>
                 Back this project
               </button>
               <div className={styles.bookmark}>
@@ -72,17 +94,23 @@ const Product = ({ data }) => {
                 description={reward.reward}
                 minumumPledge={reward.minimumPledge}
                 nbLeft={reward.nbLeft}
+                onSelect={() => openPledgeDialog(reward.id)}
               ></Reward>
             ))}
           </section>
         </div>
       </div>
-      {isDialogOpen && (
-        <BackProjectDialog
-          rewards={data.rewards}
-          onClose={() => setDialogOpen(false)}
-        ></BackProjectDialog>
-      )}
+      <BackProjectDialog
+        isOpen={isPledgeDialogOpen}
+        rewards={data.rewards}
+        onClose={() => setPledgeDialogOpen(false)}
+        selectedRewardId={selectedRewardId}
+        onSubmitPledge={handlePledgeSubmitted}
+      ></BackProjectDialog>
+      <ThanksDialog
+        isOpen={isThanksDialogOpen}
+        onClose={() => setThanksDialogOpen(false)}
+      ></ThanksDialog>
     </>
   );
 };

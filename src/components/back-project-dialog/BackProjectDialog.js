@@ -1,22 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "../modal/Modal";
 import Pledge from "../pledge/Pledge";
 
-const BackProjectDialog = ({ rewards, onClose, selectedRewardId }) => {
+const BackProjectDialog = ({ isOpen, rewards, onClose, selectedRewardId, onSubmitPledge }) => {
   const pledges = rewards.map((r) => ({
     reward: r,
     id: r.id,
   }));
   pledges.unshift({ reward: undefined, id: -1 });
 
+  const [selectedPledgeId, setSelectedPledgeId] = useState(selectedRewardId);
+
   return (
-    <Modal onClose={onClose} title="Back this project">
+    <Modal isOpen={isOpen} onClose={onClose} title="Back this project">
       <p>
         Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
         the world?
       </p>
       {pledges.map((p) => (
-        <Pledge pledge={p} isSelectedInitially={1 === p.id}></Pledge>
+        <Pledge
+          key={p.id}
+          pledge={p}
+          isSelected={selectedPledgeId === p.id}
+          onSelect={() => setSelectedPledgeId(p.id)}
+          onSubmitPledge={onSubmitPledge}
+        ></Pledge>
       ))}
     </Modal>
   );

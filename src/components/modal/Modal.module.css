@@ -7,6 +7,33 @@
   background: black;
 }
 
+.fadeIn {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.fadeOut {
+  animation: fadeOut 0.3s ease-out;
+  opacity: 0.5;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .container {
   position: fixed;
   width: calc(100% - 97px);
@@ -17,8 +44,46 @@
   padding: 32px 24px;
   border-radius: 8px;
   max-height: calc(85% - 150px);
-  height: 500px;
+  height: 650px;
   overflow: hidden;
+}
+
+.popUp {
+  height: auto;
+  text-align: center;
+}
+
+.slideIn {
+  -webkit-animation: slideIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slideIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.slideOut {
+  -webkit-animation: slideOut 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: slideOut 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  top: -100%;
+}
+
+@keyframes slideIn {
+  from {
+    top: -100%;
+    opacity: 0;
+  }
+  to {
+    top: 121px;
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    top: 121px;
+  }
+  to {
+    opacity: 0;
+    top: -100%;
+  }
 }
 
 .header {

@@ -14,9 +14,12 @@
   --transparent: rgba(0, 0, 0, 0);
 }
 
+body, input {
+  font-family: 'Commissioner', sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: 'Commissioner', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
@@ -87,7 +90,26 @@ section {
   overflow: hidden;
 }
 
+.button--smaller {
+  height: 48px;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 15px 25px;
+}
+
 .button:disabled {
   background-color: var(--dark-gray);
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.mb-16 {
+  margin-bottom: 16px;
+}
+
+.mb-24 {
+  margin-bottom: 24px;
 }
 

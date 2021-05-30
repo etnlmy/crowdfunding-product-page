@@ -4,7 +4,7 @@ import styles from "./ProgressBar.module.css";
 const ProgressBar = ({ value }) => {
   const inner = useRef(null);
   useLayoutEffect(() => {
-    setTimeout(() => (inner.current.style.width = `${100 * value}%`), 500);
+    setTimeout(() => (inner.current.style.width = `${Math.min(100, 100 * value)}%`), 500);
   });
 
   return (
