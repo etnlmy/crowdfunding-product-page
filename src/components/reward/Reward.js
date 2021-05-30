@@ -5,7 +5,7 @@ const Reward = ({ name, description, minumumPledge, nbLeft, onSelect }) => {
   const unavailable = nbLeft === 0;
 
   return (
-    <div className={`${styles.container} ${unavailable && styles.disabled}`}>
+    <div className={styles.container + (unavailable ? ` ${styles.disabled}` : "") }>
       <span>
         <b className={`${styles.name} block`}>{name}</b>
       </span>
