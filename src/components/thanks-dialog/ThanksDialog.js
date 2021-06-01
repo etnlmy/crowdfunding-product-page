@@ -4,7 +4,13 @@ import iconCheck from "../../images/icon-check.svg";
 
 const ThanksDialog = ({ isOpen, onClose }) => {
   return (
-    <Modal type="pop-up" isOpen={isOpen} confirmLabel="Got it!" onClose={onClose}>
+    <Modal
+      type="pop-up"
+      isOpen={isOpen}
+      confirmLabel="Got it!"
+      onClose={onClose}
+      portalId="thanks-modal"
+    >
       <img className="mb-24" src={iconCheck} alt="check"></img>
       <h3 className="mb-24">Thanks for your support!</h3>
       <p className="mb-24">

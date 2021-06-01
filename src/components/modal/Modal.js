@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Modal.module.css";
 import iconCloseModal from "../../images/icon-close-modal.svg";
 import useDelayedUnmount from "../../hooks/useDelayedUnmount";
+import { createPortal } from "react-dom";
 
-const Modal = ({ type, isOpen, title, onClose, children, confirmLabel }) => {
+const container = document.getElementById("container");
+
+const Modal = ({ type, isOpen, title, onClose, children, confirmLabel, portalId }) => {
   const isMounted = useDelayedUnmount(isOpen, 250);
+  const [portal] = useState(document.createElement("div"));
+  portal.id = portalId;
+  
+  useEffect(() => {
+    container.setAttribute("aria-hidden", isOpen);
+    document.body.style.overflowY = isOpen ? "hidden" : "";
+  }, [isOpen]);
 
-  return (
+  useEffect(() => {
+    document.body.appendChild(portal);
+    return () => document.body.removeChild(portal);
+  }, [portal]);
+
+  const modal = (
     isMounted && (
       <>
         <div
@@ -51,6 +66,7 @@ const Modal = ({ type, isOpen, title, onClose, children, confirmLabel }) => {
       </>
     )
   );
+  return createPortal(modal, portal)
 };
 
 export default Modal;

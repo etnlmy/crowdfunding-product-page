@@ -35,7 +35,7 @@ const Product = ({ rewardData }) => {
 
   return (
     <>
-      <div aria-hidden={isPledgeDialogOpen || isThanksDialogOpen}>
+      <div>
         <header
           className={styles.image}
           style={{
