@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import Layout from './pages/Layout';
 import ProductPage from "./pages/ProductPage";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ProductPage />
+    <Layout><ProductPage /></Layout>
   </React.StrictMode>,
   document.getElementById("container")
 );

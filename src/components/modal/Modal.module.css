@@ -5,6 +5,7 @@
   opacity: 0.5;
   top: 0;
   background: black;
+  z-index: 200;
 }
 
 .fadeIn {
@@ -46,6 +47,7 @@
   max-height: calc(85% - 150px);
   height: 650px;
   overflow: hidden;
+  z-index: 300;
 }
 
 .popUp {
