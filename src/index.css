@@ -113,3 +113,10 @@ section {
   margin-bottom: 24px;
 }
 
+.no-scroll {
+  height: 100%;
+  overflow-y: hidden;
+  touch-action: none;
+  -ms-touch-action: none;
+}
+
