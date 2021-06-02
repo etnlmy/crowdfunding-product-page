@@ -14,6 +14,7 @@ const Modal = ({ type, isOpen, title, onClose, children, confirmLabel, portalId 
   useEffect(() => {
     container.setAttribute("aria-hidden", isOpen);
     document.body.style.overflowY = isOpen ? "hidden" : "";
+    document.body.style.height = isOpen ? "100%" : "";
   }, [isOpen]);
 
   useEffect(() => {

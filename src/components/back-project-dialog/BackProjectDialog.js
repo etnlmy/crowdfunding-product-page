@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "../modal/Modal";
 import Pledge from "../pledge/Pledge";
 
@@ -15,7 +15,8 @@ const BackProjectDialog = ({
   }));
   pledges.unshift({ reward: undefined, id: -1 });
 
-  const [selectedPledgeId, setSelectedPledgeId] = useState(selectedRewardId);
+  const [selectedPledgeId, setSelectedPledgeId] = useState();
+  useEffect(() => setSelectedPledgeId(selectedRewardId), [selectedRewardId])
 
   return (
     <Modal
