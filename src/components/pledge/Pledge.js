@@ -14,8 +14,8 @@ const Pledge = ({ pledge, isSelected, onSelect, onSubmitPledge }) => {
     onSubmitPledge({
       amount: enteredPledge,
       rewardId: pledge.id,
-    })
-  }
+    });
+  };
 
   const [enteredPledge, setEnteredPledged] = useState(minimumPledge);
   const inputField = useRef();
@@ -40,19 +40,32 @@ const Pledge = ({ pledge, isSelected, onSelect, onSubmitPledge }) => {
     >
       <div className={styles.main}>
         <div className={styles.header}>
-          <div
-            className={
-              styles.radioButton +
-              (isSelected ? ` ${styles.radioButtonSelected}` : "")
-            }
-          ></div>
+          <div className={styles.headerLeft}>
+            <div
+              className={
+                styles.radioButton +
+                (isSelected ? ` ${styles.radioButtonSelected}` : "")
+              }
+            ></div>
+            {!isPledgeWithNoReward && (
+              <>
+                <div className={styles.rewardName}>
+                  <h2>{pledge.reward.name}</h2>
+                  <span>{`Pledge $${pledge.reward.minimumPledge} or more`}</span>
+                </div>
+              </>
+            )}
+            {isPledgeWithNoReward && <h2>Pledge with no reward</h2>}
+          </div>
           {!isPledgeWithNoReward && (
-            <div>
-              <h2>{pledge.reward.name}</h2>
-              <span>{`Pledge $${pledge.reward.minimumPledge} or more`}</span>
+            <div className={styles.nbLeftDesktop}>
+              <span>
+                <strong>{pledge.reward.nbLeft}</strong>left
+              </span>
             </div>
           )}
-          {isPledgeWithNoReward && <h2>Pledge with no reward</h2>}
+
+          
         </div>
         <p className="mb-8">
           {isPledgeWithNoReward ? NO_REWARD : pledge.reward.reward}
@@ -72,10 +85,7 @@ const Pledge = ({ pledge, isSelected, onSelect, onSubmitPledge }) => {
         }
       >
         <p className="mb-16">Enter your pledge</p>
-        <form
-          className={styles.form}
-          onSubmit={handleSubmit}
-        >
+        <form className={styles.form} onSubmit={handleSubmit}>
           <span className={styles.inputSymbolDollar}>
             <input
               ref={inputField}

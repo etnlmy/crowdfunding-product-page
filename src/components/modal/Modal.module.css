@@ -116,3 +116,64 @@
   overflow-y: auto;
   height: 100%;
 }
+
+
+@media (min-width: 700px) { 
+  .container {
+    max-width: 682px;
+    padding: 48px;
+    top: 190px;
+  }
+
+  .header {
+    margin-bottom: 16px;;
+  }
+
+  .header h2 {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .closeButton {
+    margin-top: -40px;
+    cursor: pointer;
+  }
+
+  .popUp {
+    max-width: 444px;
+    padding: 48px;
+  }
+
+  .scrollable img {
+    margin-bottom: 47px;
+    width: 90px;
+    height: 90px;
+  }
+
+  @keyframes slideIn {
+    from {
+      top: -100%;
+      opacity: 0;
+    }
+    to {
+      top: 190px;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideOut {
+    from {
+      opacity: 1;
+      top: 200px;
+    }
+    to {
+      opacity: 0;
+      top: -100%;
+    }
+  }
+}

@@ -1,4 +1,6 @@
 .container {
+  display: flex;
+  flex-direction: column;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   padding: 24px;
@@ -30,6 +32,45 @@
   margin-right: 8px;
 }
 
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
 .disabled {
   opacity: 0.5;
+}
+
+
+@media (min-width: 700px) {
+  .container {
+    padding: 38px 32px 32px 38px;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  .name, .pledge {
+    margin-bottom: 0;
+  }
+  .name {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .pledge {
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nbLeft {
+    margin-bottom: 0;
+  }
 }

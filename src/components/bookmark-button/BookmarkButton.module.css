@@ -1,0 +1,55 @@
+.button, .buttonActive {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+}
+
+.button:hover, .buttonActive:hover {
+  background-color: rgb(47, 47, 47, 0.05);
+}
+
+.button span, .buttonActive span {
+  display: none;
+}
+
+.button::before, .buttonActive::before {
+  content: "";
+  padding: 0;
+  height: 56px;
+  width: 56px;
+  transition: all .3s linear;
+}
+
+.button::before {
+  background: url(../../images/icon-bookmark.svg) 0px 0px no-repeat;
+}
+
+.buttonActive::before {
+  background: url(../../images/icon-bookmark-active.svg) 0px 0px no-repeat;
+}
+
+.button:hover::before, .buttonActive:hover::before {
+  filter: opacity(0.5)
+}
+
+@media (min-width: 700px) {
+  .button, .buttonActive {
+    background-color: rgb(47, 47, 47, 0.05);
+    border-radius: 33px;
+    padding-right: 24px;
+  }
+
+  .button span, .buttonActive span {
+    display: inline;
+    color: var(--dark-gray);
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    padding-left: 16px;
+  }
+
+  .buttonActive span {
+    color: var(--dark-cyan);
+  }
+}

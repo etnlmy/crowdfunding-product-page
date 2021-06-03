@@ -43,20 +43,13 @@
   align-items: center;
 }
 
-.bookmark {
-  display: flex;
-}
-
-.bookmarkButton {
-  background-color: hsla(0, 0%, 18%, 1);
-  background: url(../../images/icon-bookmark.svg) 0px 0px no-repeat;
-  padding: 0;
-  height: 56px;
-  width: 56px;
-}
-
 .bookmark span {
   display: none;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
 }
 
 .statNumber {
@@ -81,5 +74,59 @@
 
 .aboutAndRewards {
   text-align: start;
+}
+
+@media (min-width: 700px) {
+  .image {
+    height: 400px;
+  }
+
+  .image::after {
+    background-image: none;
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+
+  .header {
+    margin-top: -90px;
+  }
+
+  .buttons {
+    margin-top: 10px;
+  }
+
+  .bookmark {
+    background-color: rgb(47, 47, 47, 0.05);
+    border-radius: 33px;
+    padding-right: 24px;
+  }
+
+  .bookmark span {
+    display: inline;
+    color: var(--dark-gray);
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    padding-left: 16px;
+  }
+
+  .stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 25px;
+    text-align: left;
+  }
+
+  .statLabel {
+    margin-bottom: 0;
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .divider {
+    height: 63px;
+    width: 1px;
+    margin: 0 72px;
+  }
 }
 

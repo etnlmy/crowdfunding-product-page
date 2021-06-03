@@ -14,7 +14,13 @@ const Header = () => {
           <a className={styles.logo} href="/">
             <img alt="logo-crowdfund" src={logo} />
           </a>
-          <div className={styles.menuDesktop}></div>
+          <div className={styles.menuDesktop}>
+            <ul>
+              <li><a href="/">About</a></li>
+              <li><a href="/">Discover</a></li>
+              <li><a href="/">Get Started</a></li>
+            </ul>
+          </div>
           <HamburgerButton
             onClick={() => setMenuOpen(!menuOpen)}
             clicked={menuOpen}

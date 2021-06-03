@@ -6,19 +6,23 @@ const Reward = ({ name, description, minumumPledge, nbLeft, onSelect }) => {
 
   return (
     <div className={styles.container + (unavailable ? ` ${styles.disabled}` : "") }>
-      <span>
-        <b className={`${styles.name} block`}>{name}</b>
-      </span>
-      <span
-        className={`${styles.pledge} moderate-cyan block`}
-      >{`Pledge $${minumumPledge} or more`}</span>
+      <div className={styles.header}>
+        <span>
+          <b className={`${styles.name} block`}>{name}</b>
+        </span>
+        <span
+          className={`${styles.pledge} moderate-cyan block`}
+        >{`Pledge $${minumumPledge} or more`}</span>
+      </div>
       <p>{description}</p>
-      <span className={styles.nbLeft}>
-        <strong>{nbLeft}</strong> left
-      </span>
-      <button className="button" disabled={unavailable} onClick={onSelect}>
-        Select Reward
-      </button>
+      <div className={styles.footer}>
+        <span className={styles.nbLeft}>
+          <strong>{nbLeft}</strong> left
+        </span>
+        <button className="button" disabled={unavailable} onClick={onSelect}>
+          Select Reward
+        </button>
+      </div>
     </div>
   );
 };

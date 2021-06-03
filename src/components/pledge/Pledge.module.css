@@ -62,11 +62,16 @@
   margin-top: 24px;
 }
 
-.nbLeft strong {
+.nbLeft strong, .nbLeftDesktop strong {
   color: black;
   font-size: 18px;
   line-height: 22px;
   margin-right: 8px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
 }
 
 .nbLeft span {
@@ -127,4 +132,97 @@
   font-weight: bold;
   font-size: 14px;
   line-height: 17px;
+}
+
+.nbLeftDesktop {
+  display: none;
+}
+
+@media (min-width: 700px) {
+
+  .container:hover h2 {
+    color: var(--moderate-cyan);
+  }
+
+  .containerDisabled:hover h2 {
+    color: black;
+  }
+
+  .header {
+    margin-bottom: 10px;
+    justify-content: space-between;
+  }
+
+  .header h2 {
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: -10px;
+  }
+
+  .main {
+    padding: 35px 28px 24px 28px;
+  }
+
+  .main p {
+    padding-left: 48px;
+    font-size: 15px;
+    line-height: 28px;
+  }
+
+  .enterPledge {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px;
+  }
+
+  .enterPledge p {
+    margin-bottom: 0px;
+    font-size: 15px;
+    line-height: 28px;
+  }
+
+  .radioButton {
+    margin-right: 24px;
+  }
+
+  .inputSymbolDollar {
+    margin-right: 16px;
+  }
+
+  .rewardName {
+    display: flex;
+    margin-top: -10px;
+  }
+
+  .rewardName h2 {
+    margin-top: 0;
+    margin-right: 17px;
+  }
+
+  .rewardName span {
+    margin-top: 0;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: bold;
+  }
+
+  .nbLeft {
+    display: none;
+  }
+
+  .nbLeftDesktop {
+    display: block;
+    margin-top: -10px;
+  }
+
+  .nbLeftDesktop span {
+    color: var(--dark-gray);
+    margin-top: 0px;
+  }
+
+  .headerLeft {
+    
+  }
+
 }
